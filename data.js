@@ -1,11 +1,7 @@
 const participants = [
   'Chris',
   'Alexis',
-  'Dan',
-  'Grant',
-  'Jeff',
-  'Maggie',
-  'Steve'
+  'Dan'
 ];
 
 const makeEmail = (i) => {
@@ -17,7 +13,7 @@ const makeEmail = (i) => {
 const people = participants.reduce((acc, e, i) => {
   acc[e] = {
     name: e,
-    email: makeEmail(i),
+    email: makeEmail(i + 1),
     santa: null
   };
   return acc;
@@ -49,8 +45,7 @@ function assignSantas(array, people) {
   shuffle(santas);
 
   for(var i=0; i<santas.length; i++) {
-    var santa = santas[i],
-        recipient;
+    var santa = santas[i], recipient;
 
     // Assign santa to the person next to them to avoid assigning to self and avoid duplicate recipients
     if(i !== santas.length-1) {
@@ -59,10 +54,10 @@ function assignSantas(array, people) {
       recipient = santas[0];      
     }
 
-    people[recipient].santa = people[santa].email;
+    people[recipient].santa = santa;
   }
 
-};
+}
 
 assignSantas(participants, people);
 

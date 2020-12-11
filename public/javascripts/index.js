@@ -1,11 +1,7 @@
 const participants = [
   'Chris',
   'Alexis',
-  'Dan',
-  'Grant',
-  'Jeff',
-  'Maggie',
-  'Steve'
+  'Dan'
 ];
 
 const createNameOption = (name) => {

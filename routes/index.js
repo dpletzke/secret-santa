@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const ds = require('./data');
-const { sendEmail } = require('./message');
+const { people } = require('../data');
+const { sendEmail } = require('../message');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,13 +10,15 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  const { wisher, address, wishlist } = req.body;
+  const { name, address, wishlist } = req.body;
 
-  res.render('index', { title: 'Secret Santa' });
-
-  sendEmail('dpletzke@gmail.com', { msg:`${wisher}` });
-  sendEmail(, { msg:`${wisher}` });
-
+  const santa = people[name].santa;
+  const santasEmail = people[santa].email;
+  
+  sendEmail('dpletzke@gmail.com', { msg:`${name} has answered` });
+  sendEmail(santasEmail, { address, name, wishlist });
+  
+  res.render('index', { title: 'Secret Santa' }); 
 });
 
 module.exports = router;
