@@ -1,8 +1,11 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: palegreen;
+  display: grid;
+  height: 100vh;
+  place-items: center;
 }
 
-a {
-  color: #00B7FF;
+form {
+  display: flex;
+  flex-direction: column;
 }
