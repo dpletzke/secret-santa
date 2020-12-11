@@ -1,6 +1,5 @@
 const participants = [
   'Chris',
-  'Alaina',
   'Alexis',
   'Dan',
   'Grant',

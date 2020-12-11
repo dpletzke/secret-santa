@@ -1,6 +1,5 @@
 const participants = [
   'Chris',
-  'Alaina',
   'Alexis',
   'Dan',
   'Grant',
@@ -18,10 +17,7 @@ const makeEmail = (i) => {
 const people = participants.reduce((acc, e, i) => {
   acc[e] = {
     name: e,
-    sentResponse: false,
     email: makeEmail(i),
-    wishlist: null,
-    address: null,
     santa: null
   };
   return acc;
@@ -69,5 +65,7 @@ function assignSantas(array, people) {
 };
 
 assignSantas(participants, people);
+
+console.log(people);
 
 module.exports = { people };
