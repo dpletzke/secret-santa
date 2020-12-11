@@ -3,9 +3,20 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type='module' src="javascripts/index.js"></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <div>
+      <p>Select who you are, add your address and wishlist</p>
+      <p>An email will be sent to your santa</p>
+      <form class="wishListForm" method="POST" action="/">
+        <select id = "myList"></select>
+        <input type="text" name="address" placeholder="address">
+        <textarea type="text" name="wishlist" placeholder="wishlist"></textarea>
+        <button type="submit" value="Submit">Submit</button>
+      </form>
+    </div>
   </body>
 </html>
