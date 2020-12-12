@@ -61,6 +61,4 @@ function assignSantas(array, people) {
 
 assignSantas(participants, people);
 
-console.log(people);
-
 module.exports = { people };
