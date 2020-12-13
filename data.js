@@ -1,21 +1,10 @@
-const participants = [
-  'Chris',
-  'Alexis',
-  'Dan'
-];
 
-const makeEmail = (i) => {
-  const name = 'dpletzke'.split('');
-  name.splice(i, 0, '.');
-  return name.join('') + '@gmail.com';
-}
+const fs = require('fs');
+const ObjectsToCsv = require('objects-to-csv')
+const { participants } = require('./participants');
 
-const people = participants.reduce((acc, e, i) => {
-  acc[e] = {
-    name: e,
-    email: makeEmail(i + 1),
-    santa: null
-  };
+const people = participants.reduce((acc, e) => {
+  acc[e.name] = { ...e, santa: null };
   return acc;
 }, {});
 
@@ -41,24 +30,29 @@ function assignSantas(array, people) {
     return null;
   }
 
-  var santas = array.slice();
+  const santas = array.slice();
   shuffle(santas);
 
-  for(var i=0; i<santas.length; i++) {
-    var santa = santas[i], recipient;
-
+  for(let i=0; i<santas.length; i++) {
+    const santa = santas[i];
+    let recipient;
     // Assign santa to the person next to them to avoid assigning to self and avoid duplicate recipients
     if(i !== santas.length-1) {
       recipient = santas[i+1];
     } else {
       recipient = santas[0];      
     }
-
-    people[recipient].santa = santa;
+    people[recipient.name].santa = santa.name;
   }
 
 }
 
 assignSantas(participants, people);
+
+const csv = new ObjectsToCsv(Object.values(people));
+
+const writeToCSV = async csv => await csv.toDisk('./santaAssignments.csv');
+
+writeToCSV(csv);
 
 module.exports = { people };
