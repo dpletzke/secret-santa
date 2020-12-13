@@ -1,7 +1,7 @@
 
 const fs = require('fs');
 const ObjectsToCsv = require('objects-to-csv')
-const { participants } = require('./participants');
+const { participants } = require('./.participants');
 
 const people = participants.reduce((acc, e) => {
   acc[e.name] = { ...e, santa: null };
