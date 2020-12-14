@@ -18,7 +18,9 @@ The dev forks the project, enters in name and email data, acquires a custom doma
 3. Setup mailgun's DNS records with your hosting platform.
 4. Create `.env` using `.example.env` as a guide.
 5. Create `.participants.js` using `.example.participants.js` as a guide.
+6. Run `node santaAssignmentGenerator.js` to generate secret santa assignments
 6. Push to deployment with a service like Heroku.
+8. Add your friend's names to `public/javascripts/index.js`
 7. Send link to your friends!
 
 ## Future Work
