@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const neatCsv = require('neat-csv');
 const fs = require('fs');
+require('dotenv').config();
 
 const { sendEmail } = require('../message');
 
@@ -27,7 +28,7 @@ router.post('/', async function(req, res, next) {
     const santa = person.santa;
     const santasEmail = peopleWithAssignments.find(p => p.name === santa).email;
     
-    sendEmail('dpletzke@gmail.com', { msg:`${name} has answered` });
+    sendEmail(process.env.HOST_EMAIL, { msg:`${name} has answered` });
     sendEmail(santasEmail, { address, name, wishlist });
     
     res.render('index', { title: 'Secret Santa' }); 
