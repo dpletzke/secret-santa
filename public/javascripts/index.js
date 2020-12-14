@@ -1,3 +1,6 @@
+const { names } = require("debug")
+
+//Change the below to your friends names, should match .participants.js
 const participants = [
   'Chris',
   'Alexis',
