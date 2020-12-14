@@ -6,7 +6,7 @@ const mg = mailgun({apiKey: process.env.API_KEY, domain: process.env.DOMAIN});
 const sendEmail = (email, payload) => {
 
   const data = {
-    from: `Mailgun Sandbox <postmaster@${process.env.DOMAIN}>`,
+    from: `Dan Pletzke Automail <no-reply@${process.env.DOMAIN}>`,
     to: email,
     subject: "Your Secret Santa person!",
     text: JSON.stringify(payload)
