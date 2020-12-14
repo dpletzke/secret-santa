@@ -4,7 +4,7 @@ const neatCsv = require('neat-csv');
 const fs = require('fs');
 require('dotenv').config();
 
-const { sendEmail } = require('../message');
+const { sendEmail } = require('../email');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
