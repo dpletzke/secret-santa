@@ -51,7 +51,7 @@ assignSantas(participants, people);
 
 const csv = new ObjectsToCsv(Object.values(people));
 
-const writeToCSV = async csv => await csv.toDisk('./santaAssignments.csv');
+const writeToCSV = async csv => await csv.toDisk('./.santaAssignments.csv');
 
 writeToCSV(csv);
 
