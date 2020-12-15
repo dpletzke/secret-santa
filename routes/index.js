@@ -16,7 +16,7 @@ router.post('/', async function(req, res, next) {
   
   let peopleWithAssignments;
   
-  fs.readFile('./santaAssignments.csv', async (err, data) => {
+  fs.readFile('./.santaAssignments.csv', async (err, data) => {
     if (err) {
       console.error(err)
       return
