@@ -1,3 +1,5 @@
+
+// Add your friends names to below
 const participants = [
   'Chris',
   'Alexis',
